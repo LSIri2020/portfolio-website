@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --bleu: #1E3A8A;
+  --orange: #F97316;
+  --fond: #F8FAFC;
+  --texte: #1F2937;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+}
+
+/* Menu : Flexbox */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 64px;
+  height: 72px;
+  background: #fff;
+  border-bottom: 2px solid var(--bleu);
+}
+.logo { font-weight: 700; font-size: 24px; color: var(--bleu); text-decoration: none; }
+.nav { display: flex; gap: 36px; }
+.nav a { color: var(--texte); text-decoration: none; font-weight: 500; padding: 6px 0; }
+.nav a.active { color: var(--bleu); border-bottom: 3px solid var(--orange); }
+.menu-btn { display: none; }
+
+/* Accueil : Flexbox */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  padding: 80px 96px;
+}
+.hero-photo { width: 360px; height: 360px; border-radius: 50%; object-fit: cover; }
+
+/* Boutons */
+.btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+.btn-primary { background: var(--orange); color: var(--texte); }
+.btn-outline { border: 2px solid var(--bleu); color: var(--bleu); }
+
+/* Projets : Grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 48px 96px;
+}
+.card { background: #fff; border: 2px solid #CBD5E1; border-radius: 16px; padding: 20px; }
+.card img { width: 100%; height: 170px; object-fit: cover; border-radius: 8px; }
+
+
+/* ===== Page À propos ===== */
+.page {
+  padding: 56px 96px;
+}
+
+.page-about {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;                      /* espace entre titre, présentation et compétences */
+}
+
+.page-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--bleu);
+  line-height: 1.2;
+}
+
+/* Photo + texte, côte à côte */
+.about {
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+}
+
+.about-photo {
+  width: 240px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+  flex-shrink: 0;
+  border: 3px solid var(--bleu);  /* même bord que la maquette */
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.about-text .btn {
+  align-self: flex-start;         /* le bouton ne prend pas toute la largeur */
+  margin-top: 8px;
+  min-height: 44px;
+}
+
+/* Compétences */
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skills h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills-list li {
+  background: #fff;
+  border: 2px solid var(--bleu);
+  color: var(--bleu);
+  padding: 8px 20px;
+  border-radius: 999px;           /* forme de pastille */
+  font-size: 16px;
+  font-weight: 500;
+}
+/* ===== Page Contact ===== */
+.contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+/* Colonne gauche : titre + formulaire */
+.contact-form-wrap {
+  flex: 1;
+  max-width: 640px;
+}
+
+.contact-form-wrap .page-title {
+  margin-bottom: 24px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texte);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--texte);
+  background: #fff;
+  border: 2px solid #94A3B8;      /* bord gris-bleu comme la maquette */
+  border-radius: 8px;
+}
+
+.form-group input {
+  height: 48px;
+}
+
+.form-group textarea {
+  height: 140px;
+  padding: 12px 16px;
+  resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--bleu);      /* le champ actif devient bleu */
+}
+
+/* Message d'erreur (rempli par le JavaScript) */
+.error {
+  color: #B91C1C;
+  font-size: 14px;
+  min-height: 0;
+}
+
+/* Bouton d'envoi */
+.contact-form .btn {
+  align-self: flex-start;
+  min-height: 48px;
+  padding: 14px 32px;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-success {
+  color: #15803D;
+  font-weight: 500;
+}
+
+/* Colonne droite : carte « Autres moyens » */
+.contact-info {
+  width: 340px;
+  margin-top: 64px;               /* aligne la carte avec le premier champ */
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #fff;
+  border: 2px solid #CBD5E1;
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.contact-info h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.contact-info p {
+  font-size: 16px;
+  color: #374151;
+}
