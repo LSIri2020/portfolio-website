@@ -246,3 +246,69 @@ body {
   font-size: 16px;
   color: #374151;
 }
+/* Le bouton ☰ est invisible sur ordinateur */
+.menu-btn { display: none; }
+
+/* ===== Téléphone et petite tablette ===== */
+@media (max-width: 768px) {
+
+  /* Menu */
+  .header { padding: 0 20px; height: 60px; position: relative; }
+  .menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--bleu);
+    min-width: 44px;
+    min-height: 44px;
+    cursor: pointer;
+  }
+  .nav {
+    display: none;                 /* caché au départ */
+    position: absolute;
+    top: 60px; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    border-bottom: 2px solid var(--bleu);
+    z-index: 10;
+  }
+  .nav.open { display: flex; }     /* affiché au clic sur ☰ */
+  .nav a {
+    padding: 18px 24px;
+    border-bottom: 1px solid #CBD5E1;
+  }
+
+  /* Accueil : photo au-dessus du texte */
+  .hero {
+    flex-direction: column-reverse;
+    padding: 40px 20px;
+    gap: 32px;
+    text-align: center;
+  }
+  .hero-photo { width: 200px; height: 200px; }
+  .hero-text h1 { font-size: 36px; }
+  .hero-text h2 { font-size: 20px; }
+  .hero .btn { display: block; margin: 12px 0 0; }   /* boutons pleine largeur */
+
+  /* Pages internes */
+  .page { padding: 32px 20px; }
+  .page-title { font-size: 30px; }
+
+  /* À propos */
+  .about { flex-direction: column; align-items: center; text-align: center; }
+  .about-photo { width: 200px; height: 233px; }
+  .about-text .btn { align-self: center; }
+  .skills { align-items: center; }
+  .skills-list { justify-content: center; }
+
+  /* Projets : une seule colonne */
+  .cards { grid-template-columns: 1fr; padding: 0; }
+
+  /* Contact */
+  .contact { flex-direction: column; gap: 32px; }
+  .contact-form-wrap { width: 100%; max-width: none; }
+  .contact-info { width: 100%; margin-top: 0; }
+  .contact-form .btn { align-self: stretch; }
+}
